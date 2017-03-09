@@ -1,0 +1,2 @@
+# beanGenerator4mysqlAndMybatis
+把mysql 的表生成对应的javaBean,生成mybatis和ibats对应的xml文件
