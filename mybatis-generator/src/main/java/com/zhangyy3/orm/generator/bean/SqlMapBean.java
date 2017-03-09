@@ -16,6 +16,8 @@ public class SqlMapBean {
     private String nameSpace;
     private ResultMap resultMap;
     private SelectSql sql;
+    private String insertSQL;
+    private String updateSQL;
 
     public String getNameSpace() {
         return nameSpace;
@@ -41,6 +43,14 @@ public class SqlMapBean {
         this.sql = sql;
     }
 
+    public void setInsertSQL(String insertSQL) {
+        this.insertSQL = insertSQL;
+    }
+
+    public void setUpdateSQL(String updateSQL) {
+        this.updateSQL = updateSQL;
+    }
+
     public String genSqlMapStr() {
         StringBuilder sb = new StringBuilder();
         sb.append(XML_HEADER);
@@ -57,6 +67,19 @@ public class SqlMapBean {
             sb.append(sql.genSelectSql());
         }
         sb.append(LB);
+
+        sb.append(LB);
+        if (null != insertSQL) {
+            sb.append(insertSQL);
+        }
+        sb.append(LB);
+
+        sb.append(LB);
+        if (null != updateSQL) {
+            sb.append(updateSQL);
+        }
+        sb.append(LB);
+
         sb.append("</mapper>" + LB );
 
         return sb.toString();

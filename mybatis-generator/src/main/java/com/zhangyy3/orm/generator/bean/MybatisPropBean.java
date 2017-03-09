@@ -9,6 +9,8 @@ public class MybatisPropBean {
     private boolean open;
     private boolean resultMap;
     private boolean selectAll;
+    private boolean insert;
+    private boolean update;
 
     public MybatisPropBean() {
     }
@@ -35,5 +37,21 @@ public class MybatisPropBean {
 
     public void setSelectAll(boolean selectAll) {
         this.selectAll = selectAll;
+    }
+
+    public boolean isInsert() {
+        return insert;
+    }
+
+    public void setInsert(boolean insert) {
+        this.insert = insert;
+    }
+
+    public boolean isUpdate() {
+        return update;
+    }
+
+    public void setUpdate(boolean update) {
+        this.update = update;
     }
 }

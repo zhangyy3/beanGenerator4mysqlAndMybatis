@@ -39,6 +39,8 @@ public class PropUtil {
         mybatisPropBean.setOpen(Boolean.parseBoolean(properties.getProperty("open")));
         mybatisPropBean.setResultMap(Boolean.parseBoolean(properties.getProperty("resultMap")));
         mybatisPropBean.setSelectAll(Boolean.parseBoolean(properties.getProperty("selectAll")));
+        mybatisPropBean.setInsert(Boolean.parseBoolean(properties.getProperty("insert")));
+        mybatisPropBean.setUpdate(Boolean.parseBoolean(properties.getProperty("update")));
         properties.clear();
         return mybatisPropBean;
     }
