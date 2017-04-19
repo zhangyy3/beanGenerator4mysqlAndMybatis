@@ -60,17 +60,34 @@ public class MybatisUtil {
         sb.append(StrUtil.getBlank(8));
         sb.append("UPDATE `");
         sb.append(model.getTableName());
-        sb.append("` set");
+        sb.append("`");
+        sb.append(StrUtil.LB);
+        sb.append(StrUtil.getBlank(8));
+        sb.append("<set>");
         sb.append(StrUtil.LB);
         Set<ColumnBean> columnBeenSet = model.getColumnBeans();
         for (ColumnBean bean : columnBeenSet) {
+            // <if test="solution!=null">
+                    //`solution`=#{solution},
+
+            //</if>
+
             sb.append(StrUtil.getBlank(12));
+            sb.append("<if test=\""+ bean.getBeanName() +"!=null\">");
+            sb.append(StrUtil.LB);
+            sb.append(StrUtil.getBlank(16));
             sb.append("`");
             sb.append(bean.getDbName()).append("`=");
             sb.append("#{").append(bean.getBeanName()).append("}").append(",");
             sb.append(StrUtil.LB);
+            sb.append(StrUtil.getBlank(12));
+            sb.append("</if>");
+            sb.append(StrUtil.LB);
         }
 
+        sb.append(StrUtil.LB);
+        sb.append(StrUtil.getBlank(8));
+        sb.append("</set>");
         sb.append(StrUtil.LB);
         // tail
         sb.append(StrUtil.getBlank(4));

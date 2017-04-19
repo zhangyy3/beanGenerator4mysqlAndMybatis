@@ -56,10 +56,10 @@ public class SelectSql {
         sb.append(getBlank(8) + "select" + LB);
         ColumnBean[] beans = columnBeanSet.toArray(new ColumnBean[0]);
         int length = beans.length;
-        for (int i = 0; i < length - 1; i ++ ) {
-            sb.append(getBlank(8) + beans[i].getDbName() + " AS " + beans[i].getBeanName() + LB);
+        for (int i = 0; i < length - 1; i++) {
+            sb.append(getBlank(8) + '`' + beans[i].getDbName() + '`' + " AS " + beans[i].getBeanName() + ',' + LB);
         }
-        sb.append(getBlank(8) + beans[length-1].getBeanName() + " AS " + beans[length-1]
+        sb.append(getBlank(8) + '`' + beans[length - 1].getDbName() + '`' + " AS " + beans[length - 1]
                 .getBeanName() + LB);
         sb.append(getBlank(8) + "FROM " + tableName + LB);
         sb.append(getBlank(4) + "</sql>" + LB);
